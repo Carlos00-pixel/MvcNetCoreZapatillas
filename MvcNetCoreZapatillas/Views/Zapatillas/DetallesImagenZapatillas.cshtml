@@ -1,0 +1,47 @@
+﻿@model List<VistaImagenZapatilla>
+
+@foreach(VistaImagenZapatilla izapa in Model)
+{
+    <div class="card" style="width: 40rem;">
+      <div class="card-body">
+        <h5 class="card-title">Imagen @izapa.Posicion de @ViewData["ULTIMO"]</h5>
+        <div>
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item">
+                    <a asp-controller="Zapatillas"
+                        asp-action="DetallesImagenZapatillas"
+                        asp-route-posicion="1"
+                        asp-route-idzapatilla="@izapa.IdProducto">
+                        Primero
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a asp-controller="Zapatillas"
+                        asp-action="DetallesImagenZapatillas"
+                        asp-route-posicion="@ViewData["ANTERIOR"]"
+                        asp-route-idzapatilla="@izapa.IdProducto">
+                        Anterior
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a asp-controller="Zapatillas"
+                        asp-action="DetallesImagenZapatillas"
+                        asp-route-posicion="@ViewData["SIGUIENTE"]"
+                        asp-route-idzapatilla="@izapa.IdProducto">
+                        Siguiente
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a asp-controller="Zapatillas"
+                        asp-action="DetallesImagenZapatillas"
+                        asp-route-posicion="@ViewData["ULTIMO"]"
+                        asp-route-idzapatilla="@izapa.IdProducto">
+                        Ultimo
+                    </a>
+                </li>
+            </ul>
+        </div>
+      </div>
+      <img src="@izapa.Imagen" class="card-img-bottom">
+    </div>
+}

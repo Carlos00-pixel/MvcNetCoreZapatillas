@@ -1,0 +1,23 @@
+﻿@model Zapatilla
+
+<h1>Detalles</h1>
+
+<a asp-controller="Home" asp-action="Index">Volver a Index</a> | 
+
+<a asp-controller="Zapatillas" 
+    asp-action="DetallesImagenZapatillas"
+    asp-route-idzapatilla="@Model.IdProducto">
+    Imagenes Zapatillas
+</a>
+
+<div class="card text-center">
+  <div class="card-header" style="background-color: lightgrey">
+    @Model.Nombre
+  </div>
+  <div class="card-body">
+    @Model.Descripcion
+  </div>
+  <div class="card-footer text-muted">
+    Precio: @Model.Precio
+  </div>
+</div>
